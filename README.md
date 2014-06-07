@@ -24,8 +24,8 @@ module.exports = {
 
 ### TODOs
 
-Use enviroment variables for the API keys
-More commands
+* Use enviroment variables for the API keys
+* More commands
 
 The MIT License (MIT)
 
