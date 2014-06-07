@@ -24,7 +24,7 @@ var options = {
   },
   reboot: {
     arg: '--reboot',
-    desc: ' Takes <id> as the section argument, reboots Droptlet'
+    desc: ' Takes <id> as the second argument, reboots Droptlet'
   },
   help: {
     arg: '--help',

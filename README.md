@@ -18,7 +18,7 @@ module.exports = {
 ```
 -ls       Lists Droptlets
 --names   Lists names of Droptlets
---reboot  Takes <id> as the section argument, reboots Droptlet
+--reboot  Takes <id> as the second argument, reboots Droptlet
 --help    Lists options
 ```
 
