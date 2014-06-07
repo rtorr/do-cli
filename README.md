@@ -1,6 +1,6 @@
 #DigitalOcean CLI
 
-Super basic and alpha cli for the DigitalOcean API
+Super basic and alpha cli for the DigitalOcean API. 
 
 ### Set up
 
@@ -21,6 +21,11 @@ module.exports = {
 --reboot  Takes <id> as the section argument, reboots Droptlet
 --help    Lists options
 ```
+
+### TODOs
+
+Use enviroment variables for the API keys
+More commands
 
 The MIT License (MIT)
 
