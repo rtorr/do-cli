@@ -1,0 +1,21 @@
+{
+  "name": "do-cli",
+  "author": "rtorr",
+  "repository": "",
+  "bugs": "",
+  "homepage": "",
+  "keywords": ["Digital Ocean", "digitalocean", "DO", "cli"],
+  "version": "0.0.0",
+  "dependencies": {
+    "digitalocean-api": "^0.1.1",
+    "lodash": "^2.4.1"
+  },
+  "bin": {
+    "do-cli": "./bin/do-cli"
+  },
+  "license": "The MIT License (MIT)",
+  "main": "./bin/do-cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

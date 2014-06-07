@@ -1,0 +1,90 @@
+#!/usr/bin/env node
+
+var config = require(process.cwd()+'/do-conf');
+var _ = require('lodash');
+var DigitalOceanAPI = require('digitalocean-api');
+
+var api = new DigitalOceanAPI(config.clientId, config.apiKey);
+var args = process.argv.slice(2);
+
+var outputName = function(name){
+  return console.log(name+':\n');
+}
+
+var details = 'Coming Soon? \n';
+
+var options = {
+  listDroplets: {
+    arg: '-ls',
+    desc: '      Lists Droptlets'
+  },
+  listNames: {
+    arg: '--names',
+    desc: '  Lists names of Droptlets'
+  },
+  reboot: {
+    arg: '--reboot',
+    desc: ' Takes <id> as the section argument, reboots Droptlet'
+  },
+  help: {
+    arg: '--help',
+    desc: '   Lists options'
+  }
+};
+
+var help = function(){
+  outputName('Usage');
+  console.log(details);
+  outputName('Options');
+  _.each(options, function(i){
+    console.log(i.arg, i.desc);
+  });
+};
+
+var runOptions = function(c){
+  switch (c){
+    case options.listDroplets.arg:
+      outputName('Droplets');
+      api.dropletGetAll(function(error, droplets){
+        if (error){
+          console.log(error, 'You might want to check your do-conf.js file.');
+        }
+        console.log(droplets);
+      });
+    break;
+    case options.listNames.arg:
+      outputName('Droplet Names');
+      api.dropletGetAll(function(error, droplets){
+        if (error){
+          console.log(error, 'You might want to check your do-conf.js file.');
+        }
+        _.each(droplets, function(i){
+          console.log(i.name)
+        })
+      });
+    break;
+    case options.reboot.arg:
+      var id = args[1];
+      outputName('Reboting');
+      api.dropletReboot(id, function(error, something){
+        console.log(error);
+      })
+    break;
+    case options.help.arg:
+      help();
+    break;
+    default:
+      help();
+    break;
+  }
+};
+
+(function(){
+  if (args.length > 0){
+    _.each(args, function(i){
+      runOptions(i);
+    });
+  }else {
+    runOptions();
+  }
+})();
