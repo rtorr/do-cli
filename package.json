@@ -8,15 +8,16 @@
   "bugs": "https://github.com/rtorr/do-cli/issues",
   "homepage": "https://github.com/rtorr/do-cli",
   "keywords": [
-    "Digital Ocean", 
-    "digitalocean", 
-    "DO", 
+    "Digital Ocean",
+    "digitalocean",
+    "DO",
     "cli"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "digitalocean-api": "^0.1.1",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "minimist": "^0.1.0"
   },
   "bin": {
     "do-cli": "./bin/do-cli"

@@ -19,4 +19,4 @@ dist
 node_modules
 npm-debug.log
 .tmp
-.sass-cache
+do-conf.js
