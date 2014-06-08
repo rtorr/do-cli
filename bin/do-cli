@@ -1,12 +1,10 @@
 #!/usr/bin/env node
+var fs = require('fs');
 var _ = require('lodash');
 var minimist = require('minimist');
-var fs = require('fs');
 var DigitalOceanAPI = require('digitalocean-api');
 
 var config = require(process.cwd()+'/do-conf');
-
-
 var api = new DigitalOceanAPI(config.clientId, config.apiKey);
 
 var argv = minimist(process.argv.slice(2), {
@@ -32,6 +30,7 @@ if (argv.list){
   api.dropletGetAll(function(error, droplets){
     if (error){
       console.log(error, 'You might want to check your do-conf.js file.');
+      process.exit(1);
     }
     console.log(droplets);
   });
@@ -42,6 +41,7 @@ if (argv.listNames){
   api.dropletGetAll(function(error, droplets){
     if (error){
       console.log(error, 'You might want to check your do-conf.js file.');
+      process.exit(1);
     }
     _.each(droplets, function(i){
       console.log(i.name, i.id);
@@ -52,8 +52,13 @@ if (argv.listNames){
 if (argv.reboot){
   var id = argv.reboot[0];
   outputName('Reboting');
-  api.dropletReboot(id, function(error){
-    console.log('Error:', error);
+  api.dropletReboot(id, function(error, succ){
+    if (error){
+      console.log(error);
+      process.exit(1);
+    }else {
+      console.log(succ);
+    }
   });
 }
 
