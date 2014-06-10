@@ -13,7 +13,7 @@
     "DO",
     "cli"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "digitalocean-api": "^0.1.1",
     "lodash": "^2.4.1",
