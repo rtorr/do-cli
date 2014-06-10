@@ -16,10 +16,27 @@ module.exports = {
 ### Commands
 
 ```
---ls      Lists Droptlets
---names   Lists names of Droptlets
---reboot  Takes <id> as the second argument, reboots Droptlet
---help    Lists options
+Usage: do-cli [id] {OPTIONS}
+
+Standard Options:
+
+    --id      <id>
+              Allows you to set id for multiple operations
+
+    --ls      Lists Droptlets
+
+    --names   Lists names of Droptlets
+
+    --reboot  Takes <id> as the second argument or set --id <id>
+              Reboots Droptlet.
+
+    --pc      Takes <id> as the second argument or set --id <id>
+              Power Cycle Droplet.
+
+    --sd      Takes <id> as the second argument or set --id <id>
+              Shut Down Droplet.
+
+    --help    Lists options  Lists options
 ```
 
 ### TODOs
