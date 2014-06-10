@@ -1,6 +1,6 @@
 #DigitalOcean CLI
 
-Super basic and alpha cli for the DigitalOcean API. 
+Super basic and alpha cli for the DigitalOcean API. Mostly a wrapper around [https://github.com/enzy/digitalocean-api](https://github.com/enzy/digitalocean-api)
 
 ### Set up
 

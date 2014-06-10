@@ -9,9 +9,12 @@ var api = new DigitalOceanAPI(config.clientId, config.apiKey);
 
 var argv = minimist(process.argv.slice(2), {
   alias: {
+    id: 'id',
     list: 'ls',
     listNames: 'names',
     reboot: 'reboot',
+    powerCycle: 'pc',
+    shutdown: 'sd',
     help: 'help'
   }
 });
@@ -24,6 +27,7 @@ if (argv.help || (Object.keys(argv).length === 1 && argv._.length === 0)) {
 var outputName = function(name){
   return console.log(name+':\n');
 };
+
 
 if (argv.list){
   outputName('Droplets');
@@ -50,14 +54,40 @@ if (argv.listNames){
 }
 
 if (argv.reboot){
-  var id = argv.reboot[0];
+  var id = argv.reboot[0] || argv.id[0];
   outputName('Reboting');
-  api.dropletReboot(id, function(error, succ){
+  api.dropletReboot(id, function(error, success){
     if (error){
       console.log(error);
       process.exit(1);
     }else {
-      console.log(succ);
+      console.log(success);
+    }
+  });
+}
+
+if (argv.powerCycle){
+  var id = argv.powerCycle[0] || argv.id[0];
+  outputName('Power Cycle');
+  api.dropletPowerCycle(id, function(error, success){
+    if (error){
+      console.log(error);
+      process.exit(1);
+    }else {
+      console.log(success);
+    }
+  });
+}
+
+if (argv.shutdown){
+  var id = argv.shutdown[0] || argv.id[0];
+  outputName('Shutting Down');
+  api.dropletShutdown(id, function(error, success){
+    if (error){
+      console.log(error);
+      process.exit(1);
+    }else {
+      console.log(success);
     }
   });
 }
