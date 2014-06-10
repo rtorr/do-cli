@@ -1,6 +1,6 @@
 #DigitalOcean CLI
 
-Super basic and alpha cli for the DigitalOcean API. Mostly a wrapper around [https://github.com/enzy/digitalocean-api](https://github.com/enzy/digitalocean-api)
+Super basic and alpha cli for the DigitalOcean API.
 
 ### Set up
 
@@ -43,6 +43,10 @@ Standard Options:
 
 * Use enviroment variables for the API keys
 * More commands
+
+### Acknowledgements
+
+Mostly a wrapper around [https://github.com/enzy/digitalocean-api](https://github.com/enzy/digitalocean-api)
 
 The MIT License (MIT)
 
